@@ -1,0 +1,3 @@
+# agda-playground
+
+When the intuitionism kicks in ...
