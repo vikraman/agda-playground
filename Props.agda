@@ -1,4 +1,4 @@
-module Prop where
+module Props where
 
 data _∧_ (P : Set) (Q : Set) : Set where
    ∧-intro : P → Q → (P ∧ Q)
