@@ -24,6 +24,9 @@ data U : Set where
 U-univ : Universe _ _
 U-univ = record { U = U ; El = ⟦_⟧ }
 
+_⟶_ : ∀ A B → Set
+A ⟶ B = ⟦ A ⟧ → ⟦ B ⟧
+
 data _⟷_ : U → U → Set where
   unite₊l : {t : U} → PLUS ZERO t ⟷ t
   uniti₊l : {t : U} → t ⟷ PLUS ZERO t
@@ -63,8 +66,8 @@ data _≡ᵤ_ (A : U) : U → Set where
 
 record _≃_ (A B : U) : Set where
   field
-    f : ⟦ A ⟧ → ⟦ B ⟧
-    g : ⟦ B ⟧ → ⟦ A ⟧
+    f : A ⟶ B
+    g : B ⟶ A
     f-g : ∀ x → f (g x) ≡ x
     g-f : ∀ x → g (f x) ≡ x
 
